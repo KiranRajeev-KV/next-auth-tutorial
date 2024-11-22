@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Authentication with NextAuth
 
-## Getting Started
+This is a **Next.js** project implementing authentication with **NextAuth** using **Google** and **GitHub** as authentication providers. It includes role-based access control, server-side and client-side page protection, and middleware for managing user sessions and access.
 
-First, run the development server:
+## Features
+- **Google & GitHub Authentication**: Users can sign in using their existing Google or GitHub accounts through NextAuth.
+- **Role-Based Access Control (RBAC)**: Access to different pages is restricted based on user roles (admin, member, guest).
+- **Client-Side Protection**: Protected pages ensure users are authenticated before access.
+- **Server-Side Protection**: Role-based protection for pages with server-side authentication checks.
+- **Middleware**: Middleware is used to handle authentication and authorization across routes.
 
+## Screenshots
+![image](https://github.com/user-attachments/assets/69776be8-9bf7-4d0a-8a2d-c290ef716bbe)
+
+
+## Installation
+
+To get started with this project, follow these steps:
+
+### 1. Clone the repository to your local machine
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/KiranRajeev-KV/next-auth-tutorial.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Navigate to the project folder
+```bash
+cd next-auth-tutorial
+```
+### 3. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Set up environment variables
+Create a .env.local file in the root of the project and add the following environment variables:
+```
+GITHUB_ID = your-github-client-id
+GITHUB_SECRET = your-github-client-secret
+GOOGLE_ID = your-google-client-id
+GOOGLE_SECRET = your-google-client-secret
+NEXTAUTH_URL = http://localhost:3000
+NEXTAUTH_SECRET = your-nextauth-secret
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 5. Run the development server
+```bash
+npm run dev
+```
+Visit http://localhost:3000 in your browser to see the project in action.
 
-## Learn More
+## Usage
+- Authentication: The project uses NextAuth for authentication. Users can log in with their Google or GitHub accounts.
+- Role-Based Access: Users are assigned roles (Admin, Github User, Google User) and can access pages based on their roles.
+- Page Protection: Some pages are protected and can only be accessed by authenticated users or users with specific roles (e.g., admins).
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies Used
+- Next.js: A React framework for building server-side rendered applications.
+- NextAuth.js: Authentication library for Next.js applications.
+- Tailwind CSS: Utility-first CSS framework for styling the components.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Conclusion
+This project demonstrates how to integrate authentication in a Next.js app using NextAuth, with support for role-based access control, middleware, and protected routes. It also shows how to set up and secure your app with Google and GitHub as OAuth providers.
